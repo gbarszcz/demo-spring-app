@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--BASICS-->
+    <!--<bean id="atmCard" class="com.gabi.demo.model.ATMCard" />-->
+    <!--<bean id="creditCard" class="com.gabi.demo.model.CreditCard" />-->
+    <!--<bean id="savingAccount" class="com.gabi.demo.model.SavingAccount">-->
+        <!--<constructor-arg ref="atmCard"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="currentAccount" class="com.gabi.demo.model.CurrentAccount">-->
+        <!--<property name="creditCard" ref="creditCard"/>-->
+    <!--</bean>-->
+
+     <!---->
+    <!-- AUTOWIRING -->
+    <!--byName-->
+    <!--<bean id="creditCard" class="com.gabi.demo.model.CreditCard" />-->
+    <!--<bean id="currentAccount" class="com.gabi.demo.model.CurrentAccount"-->
+        <!--autowire="byName">-->
+    <!--</bean>-->
+
+    <!--byType-->
+    <!--<bean id="myCard" class="com.gabi.demo.model.CreditCard" />-->
+    <!--<bean id="currentAccount" class="com.gabi.demo.model.CurrentAccount"-->
+        <!--autowire="byType">-->
+    <!--</bean>-->
+
+    <!--SCOPES-->
+
+    <!--<bean id="creditCard" class="com.gabi.demo.model.CreditCard" />-->
+    <!--<bean id="currentAccount"-->
+          <!--class="com.gabi.demo.model.CurrentAccount"-->
+          <!--autowire="byType"-->
+          <!--scope="singleton">-->
+    <!--<bean id="creditCard" class="com.gabi.demo.model.CreditCard" />-->
+
+    <!--<bean id="creditCard" class="com.gabi.demo.model.CreditCard" />-->
+    <!--<bean id="currentAccount"-->
+          <!--class="com.gabi.demo.model.CurrentAccount"-->
+          <!--autowire="byType"-->
+          <!--scope="prototype">-->
+    <!--</bean>-->
+
+    <!--LIFECYCLE-->
+
+    <!--<bean id="creditCard" class="com.gabi.demo.model.CreditCard" />-->
+    <!--<bean id="currentAccount"-->
+          <!--class="com.gabi.demo.model.CurrentAccount"-->
+          <!--autowire="byType"-->
+          <!--init-method="onInit"-->
+          <!--destroy-method="onDestroy">-->
+    <!--</bean>-->
+</beans>
