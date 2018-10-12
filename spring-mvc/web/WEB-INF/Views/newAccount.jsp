@@ -5,26 +5,28 @@
   Time: 14:13
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
-    <title>Create new account</title>
+    <title><spring:message code="lbl.title" /></title>
 </head>
 <body>
 <h2>Create new account</h2>
-<form name="newAccountForm" action="saveAccount" method="post">
+<form:form action="saveAccount" modelAttribute="account">
     <table>
         <tr>
-            <td>Account #:</td>
-            <td><input type="text" name="accountNumber"></td>
+            <td><spring:message code="lbl.accountNumber"/>: </td>
+            <td><form:input path="accountNumber" size="30"/></td>
         </tr>
         <tr>
-            <td>Account Holder Name</td>
-            <td><input type="text" name="accountHolderName"></td>
+            <td><spring:message code="lbl.accountHolderName"/>: </td>
+            <td><form:input path="accountHolderName" size="30"/></td>
         </tr>
         <tr>
-            <td>Account Balance:</td>
-            <td><input type="text" name="accountBalance"></td>
+            <td><spring:message code="lbl.accountBalance"/>: </td>
+            <td><form:input path="accountBalance" size="30"/></td>
         </tr>
         <tr>
             <td colspan="2" align="center">
@@ -32,6 +34,6 @@
         </tr>
     </table>
 
-</form>
+</form:form>
 </body>
 </html>

@@ -5,6 +5,10 @@ public class Account {
     private String accountHolderName = "";
     private Integer accountBalance = 0;
 
+    public Account() {
+
+    }
+
     public Account(Integer accountNumber, String accountHolderName, Integer accountBalance) {
         this.accountNumber = accountNumber;
         this.accountHolderName = accountHolderName;
