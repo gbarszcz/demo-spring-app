@@ -6,9 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletRequest;
-
 @Controller
+@RequestMapping("/account")
 public class AccountController {
 
     @RequestMapping("/")
@@ -27,17 +26,19 @@ public class AccountController {
         return "showAccount";
     }
 
-    @RequestMapping(value="/saveAccount", method = RequestMethod.POST)
-    public String saveAccount(Model model, HttpServletRequest request) {
-        String accountNumber = request.getParameter("accountNumber");
-        String accountHolderName = request.getParameter("accountHolderName");
-        String accountBalance = request.getParameter("accountBalance");
-
-/*        model.addAttribute("accountNo", accountNumber);
-        model.addAttribute("accountOwnerName", accountHolderName);
-        model.addAttribute("accountBalance", accountBalance);*/
-
+    // Commented out due to a simplified version below
+/*    @RequestMapping(value="/saveAccount", method = RequestMethod.POST)
+    public String saveAccount(Model model,
+                              @RequestParam("accountNumber") String accountNumber,
+                              @RequestParam("accountHolderName") String accountHolderName,
+                              @RequestParam("accountBalance") String accountBalance) {
         Account account = new Account(Integer.parseInt(accountNumber), accountHolderName, Integer.parseInt(accountBalance));
+        model.addAttribute("account", account);
+        return "showAccount";
+    }*/
+
+    @RequestMapping(value="/saveAccount", method = RequestMethod.POST)
+    public String saveAccount(Model model, Account account) {
         model.addAttribute("account", account);
         return "showAccount";
     }
