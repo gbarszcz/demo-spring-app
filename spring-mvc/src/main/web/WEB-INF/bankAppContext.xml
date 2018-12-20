@@ -24,6 +24,6 @@
 
     <bean id="messageSource"
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource"
-          p:basename="/WEB-INF/account">
+          p:basename="WEB-INF/account">
     </bean>
 </beans>
