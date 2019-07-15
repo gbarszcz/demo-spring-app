@@ -34,5 +34,8 @@
     <p><spring:message code="lbl.accountNumber"/> #: ${account.accountNumber}</p>
     <p><spring:message code="lbl.accountHolderName"/>: ${account.accountHolderName}</p>
     <p><spring:message code="lbl.accountBalance"/>: ${account.accountBalance}</p>
+    <p><spring:message code="lbl.accountType" />: ${account.accountType} </p>
+    <p><spring:message code="lbl.dob" />: ${account.dateOfBirth} </p>
+    <p><spring:message code="lbl.psCode" />: ${account.psCode} </p>
 </body>
 </html>

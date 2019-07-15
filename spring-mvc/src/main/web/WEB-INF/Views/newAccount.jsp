@@ -11,6 +11,11 @@
 <html>
 <head>
     <title><spring:message code="lbl.title" /></title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <h2>Create new account</h2>
@@ -18,19 +23,54 @@
     <table>
         <tr>
             <td><spring:message code="lbl.accountNumber"/>: </td>
-            <td><form:input path="accountNumber" size="30"/></td>
+            <td>
+                <form:input path="accountNumber" size="30"/>
+                <form:errors path="accountNumber" cssClass="error"/>
+            </td>
         </tr>
         <tr>
             <td><spring:message code="lbl.accountHolderName"/>: </td>
-            <td><form:input path="accountHolderName" size="30"/></td>
+            <td>
+                <form:input path="accountHolderName" size="30"/>
+                <form:errors path="accountHolderName" cssClass="error"/>
+            </td>
         </tr>
         <tr>
             <td><spring:message code="lbl.accountBalance"/>: </td>
-            <td><form:input path="accountBalance" size="30"/></td>
+            <td>
+                <form:input path="accountBalance" size="30"/>
+                <form:errors path="accountBalance" cssClass="error"/>
+            </td>
         </tr>
         <tr>
+            <td><spring:message code="lbl.accountType"/>: </td>
+            <td>
+                <form:select path="accountType">
+                    <form:option value="">Select account type</form:option>
+                    <form:option value="SAVINGS">Savings</form:option>
+                    <form:option value="CURRENT">Current</form:option>
+                </form:select>
+                <form:errors path="accountType" cssClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td><spring:message code="lbl.dob"/>: </td>
+            <td>
+                <form:input path="dateOfBirth" size="30"/>
+                <form:errors path="dateOfBirth" cssClass="error"/>
+            </td>
+        </tr>
+        <tr>
+            <td><spring:message code="lbl.psCode"/>: </td>
+            <td>
+                <form:input path="psCode" size="30"/>
+                <form:errors path="psCode" cssClass="error"/>
+            </td>
+        </tr>
+
+        <tr>
             <td colspan="2" align="center">
-            <input type="submit" value="Create Account" name="btnSubmit">
+                <input type="submit" value="Create Account" name="btnSubmit">
         </tr>
     </table>
 
