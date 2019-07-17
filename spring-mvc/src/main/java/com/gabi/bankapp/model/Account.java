@@ -1,15 +1,16 @@
 package com.gabi.bankapp.model;
 
+import com.gabi.bankapp.validations.PSCode;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
 import java.util.Date;
 
 public class Account {
-    @NotNull(message="Account # cannot be blank")
+    @NotNull
     private Integer accountNumber;
 
-    @NotNull(message="Account Holder name cannot be blank")
+    @NotNull
     @Size(min=2, max=50, message="Invalid length for Account Holder Name")
     @Pattern(regexp = "[A-Za-z(\\s)]+", message = "Invalid Account Holder Name")
     private String accountHolderName;
@@ -27,6 +28,7 @@ public class Account {
     private Date dateOfBirth;
 
     @NotNull(message="PS code is required")
+    @PSCode
     private String psCode;
 
     public Account() {
