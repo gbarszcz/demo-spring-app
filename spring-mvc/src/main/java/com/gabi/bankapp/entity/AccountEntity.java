@@ -23,7 +23,7 @@ public class AccountEntity {
     @Column(name="accountType")
     private String accountType;
 
-    @Column(name="dateOfBirts")
+    @Column(name="dateOfBirth")
     private Date dateOfBirth;
 
     @Column(name="psCode")

@@ -1,6 +1,8 @@
 package com.gabi.bankapp.controllers;
 
 import com.gabi.bankapp.model.Account;
+import com.gabi.bankapp.services.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,9 @@ import javax.validation.Valid;
 @RequestMapping("/account")
 public class AccountController {
 
+    @Autowired
+    AccountService accountService;
+
     @InitBinder
     public void initBinder(WebDataBinder dataBinder) {
         StringTrimmerEditor ste = new StringTrimmerEditor(true);
@@ -30,7 +35,7 @@ public class AccountController {
     @RequestMapping("/newAccount")
     public String newAccount(Model model) {
         model.addAttribute("account", new Account());
-        return "newAccount";
+        return "account-form";
     }
 
     @RequestMapping("/showAccount")
@@ -54,10 +59,10 @@ public class AccountController {
         // Commented out due to using validations
         /*model.addAttribute("account", account);
         return "showAccount";*/
-
         if (result.hasErrors()) {
-            return "newAccount";
+            return "account-form";
         } else {
+            accountService.saveAccount(account);
             return "showAccount";
         }
     }
