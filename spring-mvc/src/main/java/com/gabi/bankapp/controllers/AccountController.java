@@ -8,11 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/account")
@@ -63,7 +65,14 @@ public class AccountController {
             return "account-form";
         } else {
             accountService.saveAccount(account);
-            return "showAccount";
+            return "redirect:/account/list";
         }
+    }
+
+    @GetMapping("/list")
+    public String listAccounts(Model model) {
+        List<Account> accounts = accountService.getAccounts();
+        model.addAttribute("accounts", accounts);
+        return "listAccounts";
     }
 }
