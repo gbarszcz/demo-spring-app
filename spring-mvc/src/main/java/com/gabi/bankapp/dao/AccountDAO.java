@@ -7,4 +7,5 @@ import java.util.List;
 public interface AccountDAO {
     boolean saveAccount(Account account);
     List<Account> getAccounts();
+    Account getAccount(Integer accountNumber);
 }

@@ -12,6 +12,6 @@
 </head>
 <body>
 <h1>Welcome to Bank Application</h1>
-<a href="account/newAccount">Create new account</a>
+<a href="newAccount">Create new account</a>
 </body>
 </html>
