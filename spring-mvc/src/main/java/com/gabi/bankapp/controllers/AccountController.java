@@ -74,8 +74,15 @@ public class AccountController {
 
     @GetMapping("/edit")
     public String updateAccount(@RequestParam("accountNumber") int accountNumber, Model model) {
-        Account account = accountService.getAccount(new Integer(accountNumber));
+        Account account = accountService.getAccount(accountNumber);
         model.addAttribute("account", account);
         return "account-form";
+    }
+
+    @GetMapping("/delete")
+    public String deleteAccount(@RequestParam("accountNumber") int accountNumber, Model model) {
+        boolean deleted = accountService.deleteAccount(accountNumber);
+        model.addAttribute("accountNumber", accountNumber);
+        return "deletedAccount";
     }
 }

@@ -12,6 +12,7 @@
 </head>
 <body>
 <h1>Welcome to Bank Application</h1>
-<a href="newAccount">Create new account</a>
+<p><a href="newAccount">Create new account</a></p>
+<p><a href="list">List accounts</a></p>
 </body>
 </html>

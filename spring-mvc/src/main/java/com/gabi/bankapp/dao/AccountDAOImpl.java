@@ -43,8 +43,8 @@ public class AccountDAOImpl implements AccountDAO {
     public List<Account> getAccounts() {
         List<Account> list = new ArrayList<>();
         try {
-            Session session = sessionFactory.getCurrentSession();
-            Query<AccountEntity> query = session.createQuery("From AccountEntity", AccountEntity.class);
+            Session currentSession = sessionFactory.getCurrentSession();
+            Query<AccountEntity> query = currentSession.createQuery("From AccountEntity", AccountEntity.class);
             List<AccountEntity> accounts = query.getResultList();
             for (AccountEntity accountEntity : accounts) {
                 Account account = new Account();
@@ -68,8 +68,8 @@ public class AccountDAOImpl implements AccountDAO {
     public Account getAccount(Integer accountNumber) {
         Account account = new Account();
         try {
-            Session session = sessionFactory.getCurrentSession();
-            AccountEntity accountEntity = session.load(AccountEntity.class, accountNumber);
+            Session currentSession = sessionFactory.getCurrentSession();
+            AccountEntity accountEntity = currentSession.load(AccountEntity.class, accountNumber);
 
             account.setAccountBalance(accountEntity.getAccountBalance());
             account.setAccountHolderName(accountEntity.getAccountHolderName());
@@ -82,5 +82,21 @@ public class AccountDAOImpl implements AccountDAO {
             ex.printStackTrace();
         }
         return account;
+    }
+
+    @Override
+    public boolean deleteAccount(Integer accountNumber) {
+        boolean deleteFlag = true;
+
+        try {
+            Session currentSession = sessionFactory.getCurrentSession();
+            AccountEntity accountEntity = currentSession.load(AccountEntity.class, accountNumber);
+            currentSession.remove(accountEntity);
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+            deleteFlag = false;
+        }
+        return deleteFlag;
     }
 }

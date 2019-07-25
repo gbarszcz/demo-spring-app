@@ -8,4 +8,5 @@ public interface AccountService {
     boolean saveAccount(Account account);
     List<Account> getAccounts();
     Account getAccount(Integer accountNumber);
+    boolean deleteAccount(Integer accountNumber);
 }

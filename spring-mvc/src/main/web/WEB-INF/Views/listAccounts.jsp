@@ -14,11 +14,15 @@
                 <th><spring:message code="lbl.accountBalance" /></th>
                 <th><spring:message code="lbl.accountType" /></th>
                 <th> &nbsp; </th>
+                <th> &nbsp; </th>
             </tr>
         </thead>
         <tbody>
             <c:forEach var="account" items="${accounts}">
                 <c:url var="updateLink" value="/edit">
+                    <c:param name="accountNumber" value="${account.accountNumber}" />
+                </c:url>
+                <c:url var="deleteLink" value="/delete">
                     <c:param name="accountNumber" value="${account.accountNumber}" />
                 </c:url>
                 <tr>
@@ -27,6 +31,7 @@
                     <td>${account.accountBalance}</td>
                     <td>${account.accountType}</td>
                     <td><a href="${updateLink}">Edit</a></td>
+                    <td><a href="${deleteLink}" onClick="if(!(confirm('Are you sure?'))) return false">Delete</a></td>
                 </tr>
             </c:forEach>
         </tbody>

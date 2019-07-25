@@ -31,4 +31,10 @@ public class AccountServiceImpl implements AccountService {
     public Account getAccount(Integer accountNumber) {
         return accountDAO.getAccount(accountNumber);
     }
+
+    @Override
+    @Transactional
+    public boolean deleteAccount(Integer accountNumber) {
+        return accountDAO.deleteAccount(accountNumber);
+    }
 }
