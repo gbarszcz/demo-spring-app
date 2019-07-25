@@ -31,11 +31,11 @@
     </bean>
 
     <bean id="dataSource"
-          class="com.mchange.v2.c3p0.ComboPooledDataSource"
-          destroy-method="close">
-        <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/psbankapp?useSLL=false&amp;serverTimezone=UTC" />
-        <property name="user" value="root" />
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+          >
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/psbankapp?useSLL=false&amp;serverTimezone=UTC" />
+        <property name="username" value="root" />
         <property name="password" value="admin" />
     </bean>
 
@@ -44,7 +44,7 @@
         <property name="packagesToScan" value="com.gabi.bankapp" />
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
             </props>
         </property>

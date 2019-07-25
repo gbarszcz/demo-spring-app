@@ -22,7 +22,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring.version>5.0.7.RELEASE</spring.version>
+        <spring.version>5.1.6.RELEASE</spring.version>
+        <hibernate.version>5.4.3.Final</hibernate.version>
     </properties>
 
     <dependencies>
@@ -64,14 +65,14 @@
         </dependency>
         <!-- Hibernate Dependencies-->
         <dependency>
-            <groupId>org.hibernate.orm</groupId>
+            <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>6.0.0.Alpha2</version>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.hibernate.orm</groupId>
+            <groupId>org.hibernate</groupId>
             <artifactId>hibernate-c3p0</artifactId>
-            <version>6.0.0.Alpha2</version>
+            <version>${hibernate.version}</version>
         </dependency>
 
         <dependency>
@@ -109,7 +110,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>RELEASE</version>
+            <version>8.0.9-rc</version>
         </dependency>
         <dependency>
             <groupId>jstl</groupId>
