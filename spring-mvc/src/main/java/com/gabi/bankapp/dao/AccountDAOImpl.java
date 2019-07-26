@@ -69,8 +69,10 @@ public class AccountDAOImpl implements AccountDAO {
         Account account = new Account();
         try {
             Session currentSession = sessionFactory.getCurrentSession();
-            AccountEntity accountEntity = currentSession.load(AccountEntity.class, accountNumber);
-
+            AccountEntity accountEntity = currentSession.get(AccountEntity.class, accountNumber);
+            if (accountEntity == null) {
+                return null;
+            }
             account.setAccountBalance(accountEntity.getAccountBalance());
             account.setAccountHolderName(accountEntity.getAccountHolderName());
             account.setAccountNumber(accountEntity.getAccountNumber());

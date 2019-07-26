@@ -26,6 +26,7 @@
             <td>
                 <form:input path="accountNumber" size="30"/>
                 <form:errors path="accountNumber" cssClass="error"/>
+                <b><font color="red">${message}</font></b>
             </td>
         </tr>
         <tr>

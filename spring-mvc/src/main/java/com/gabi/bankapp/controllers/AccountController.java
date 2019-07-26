@@ -53,14 +53,27 @@ public class AccountController {
     }*/
 
     @RequestMapping(value = "/saveAccount", method = RequestMethod.POST)
-    public String saveAccount(@Valid Account account, BindingResult result) {
+    public String saveAccount(@Valid Account account, BindingResult result, Model model) {
         // Commented out due to using validations
         /*model.addAttribute("account", account);
         return "showAccount";*/
         if (result.hasErrors()) {
             return "account-form";
         } else {
-            accountService.saveAccount(account);
+            String message = "";
+            boolean flag;
+            try {
+                flag = accountService.saveAccount(account);
+            }
+            catch (Exception ex) {
+                message = ex.getMessage();
+                flag = false;
+            }
+            if (!flag) {
+                model.addAttribute("message", message);
+                return "account-form";
+            }
+            model.addAttribute("account", account);
             return "redirect:/list";
         }
     }
