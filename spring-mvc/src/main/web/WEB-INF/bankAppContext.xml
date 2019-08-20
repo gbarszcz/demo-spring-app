@@ -21,6 +21,8 @@
     
     <mvc:annotation-driven/>
 
+    <mvc:resources mapping="/resource/**" location="resources/images"/>
+
     <aop:aspectj-autoproxy/>
     
     <bean id="viewResolver"
