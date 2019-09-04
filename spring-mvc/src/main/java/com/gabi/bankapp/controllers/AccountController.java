@@ -32,6 +32,11 @@ public class AccountController {
         return "index";
     }
 
+    @GetMapping("/find")
+    public String viewAccount(Model model) {
+        return "findAccount";
+    }
+
     @RequestMapping("/newAccount")
     public String newAccount(Model model) {
         model.addAttribute("account", new Account());

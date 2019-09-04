@@ -16,6 +16,8 @@
                 username-parameter="username"
                 password-parameter="password"
                 default-target-url="/list" />
+        <!--just for testing purposes! never use it in production, it prevents XSS attacks-->
+        <csrf disabled="true"/>
     </http>
     
     <!--<user-service>-->
