@@ -92,7 +92,7 @@ public class AccountController {
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
-        model.addAttribute("username", name);
+        model.addAttribute("userName", name);
         return "listAccounts";
     }
 

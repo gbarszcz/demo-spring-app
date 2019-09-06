@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>PS Bank Acount Holder Details</title>
+    <title>PS Bank Account Holder Details</title>
 </head>
 <body>
     <div class="container">
@@ -26,7 +26,7 @@
                 </script>
 
                 <p class="display-5">
-                   Welcome ${username}, <a href="javascript:formSubmit()">Logout</a>
+                   Welcome ${userName}, <a href="javascript:formSubmit()">Logout</a>
                 </p>
             </div>
             

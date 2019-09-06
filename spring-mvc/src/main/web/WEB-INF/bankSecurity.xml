@@ -7,6 +7,8 @@
        http://www.springframework.org/schema/security
        http://www.springframework.org/schema/security/spring-security.xsd">
 
+    <beans:bean id="customSuccessHandler" class="com.gabi.bankapp.authenticate.CustomSuccessHandler" />
+
     <http auto-config="true" use-expressions="true" >
         <intercept-url pattern="/list*" access="hasRole('ROLE_ADMIN')" />
         <!--<http-basic/>-->
@@ -15,7 +17,7 @@
                 authentication-failure-url="/user/login?error=true"
                 username-parameter="username"
                 password-parameter="password"
-                default-target-url="/list" />
+                authentication-success-handler-ref="customSuccessHandler"/>
         <!--just for testing purposes! never use it in production, it prevents XSS attacks-->
         <csrf disabled="true"/>
     </http>
